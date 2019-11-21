@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Introduccion Vuejs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <h1>Agregar Nota</h1>
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" v-model="nombre">
+                    <label>Promedio</label>
+                    <input type="number" max="20" min="0" class="form-control" v-model="promedio">
+                    <input type="button" value="Guardar" class="btn btn-success" v-on:click="agregarNota">
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <h1 v-if="lista.length > 0">Lista de Notas</h1>
+                    <h1 v-else>No Existen Notas</h1>
+                    <table v-if="lista.length > 0" class="table">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Promedio</th>
+                        </tr>
+
+                        <tr v-for="lis in lista" v-bind:style="lis.estado==false?'color:red':'color:blue'">
+                            <td v-text="lis.nombre"></td>
+                            <td v-text="lis.promedio"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <p class="text-center">
+                        Elio Alfonzo Dev. | Tlf: 956259823
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script src="js/vue.js"></script>
+<script src="js/principal.js"></script>
+
+</html>
